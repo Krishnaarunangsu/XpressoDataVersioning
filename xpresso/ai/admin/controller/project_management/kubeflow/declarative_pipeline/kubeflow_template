@@ -1,0 +1,31 @@
+"""
+This is an auto-generated code. Please do not modify.
+"""
+#!/usr/bin/python
+
+import yaml
+import kfp
+from kfp import components
+from kfp import dsl
+from kubernetes import client as k8s_client
+
+with open(%pipeline_yaml_location%, 'r') as f:
+    component_info = yaml.safe_load(f.read())['components']
+
+%load_components%
+
+
+@dsl.pipeline(
+    name=%pipeline_name%,
+    description=%pipeline_description%
+)
+def main_function(%main_function_params%):
+
+%main_function_variables%
+
+%container_op%
+
+%component_definitions%
+
+
+kfp.compiler.Compiler().compile(main_function, __file__ + '.zip')

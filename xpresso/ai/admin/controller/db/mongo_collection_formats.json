@@ -1,0 +1,65 @@
+{
+     "users": {
+          "add": [{"key": "<key>", "value": "<value>"}],
+          "remove": ["<field name>"],
+          "rename": [
+               {
+                    "old": "<old key>",
+                    "new": "<new key>"
+               }
+          ],
+          "current": [
+               "uid",
+               "firstName",
+               "lastName",
+               "pwd",
+               "email",
+               "primaryRole",
+               "loginStatus",
+               "activationStatus",
+               "nodes",
+               "loginExpiry",
+               "token",
+               "tokenExpiry"
+          ]
+     },
+     "nodes": {
+          "add": [],
+          "remove": [],
+          "rename": [],
+          "current": [
+               "name",
+               "address",
+               "provisionStatus",
+               "masterip",
+               "nodetype"
+          ]
+     },
+     "projects": {
+          "add": ["linux_uid"],
+          "remove": [],
+          "rename": [],
+          "current": [
+               "name",
+               "projectDescription",
+               "owner",
+               "giturl",
+               "developers",
+               "currentlyDeployed",
+               "deployedClusters",
+               "components",
+               "activationStatus"
+          ]
+     },
+     "clusters": {
+          "add": [],
+          "remove": [],
+          "rename": [],
+          "current": [
+               "name",
+               "activationStatus",
+               "master_nodes",
+               "worker_nodes"
+          ]
+     }
+}

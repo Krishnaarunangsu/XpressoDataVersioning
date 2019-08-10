@@ -1,0 +1,129 @@
+{
+	"env": "prod",
+	"general": {
+		"package_name": "xpresso.ai",
+		"package_path": "/opt/xpresso.ai"
+	},
+	"packages_setup": {
+		"nfs": {
+			"subnet_to_nfs_map": {
+				"nfs1.xpresso.ai": "10.*.*.*",
+				"nfs2.xpresso.ai": "172.*.*.*"
+			},
+			"mount_location": "/mnt/nfs/data",
+			"nfs_location": "/mnt/exports/vmdata1/xpresso_platform"
+		},
+		"pkg_dependency": {
+			"dependency_config_file": "config/dependency_config.json"
+		},
+		"apt-get-repo": {
+			"package_root_folder": "/mnt/nfs/data/admin/packages",
+			"public_key_file": "${package_root_folder}/secret/esx-gpg-public.key",
+			"private_key_file": "${package_root_folder}/secret/esx-gpg-private.key",
+			"hosted_package": "${package_root_folder}/hosted_packages",
+			"package-list": "scripts/linux/ubuntu/apt-get-repo/full-package-list.txt",
+			"meta_packages_folder": "config/apt-get/metapackages",
+			"docker-name": "apt-get-repo",
+			"dockerfile-path": "scripts/docker/apt-get-repo/apt-mirror.dockerfile"
+		},
+		"kubernetes": {
+			"pod_network_cidr": "10.244.0.0/16"
+		},
+		"base_ubuntu": {
+			"pkg_list": [
+				"build-essential",
+				"vim",
+				"curl",
+				"python3-dev",
+				"python3.7-dev",
+				"python-dev",
+				"libcurl4-openssl-dev",
+				"libssl-dev",
+				"libffi-dev",
+				"git",
+				"wget",
+				"tmux",
+				"libfreetype6",
+				"apt-transport-https",
+				"ca-certificates",
+				"software-properties-common",
+				"locales",
+				"pkg-config",
+				"nano",
+				"cmake",
+				"libxml2-dev",
+				"libxmlsec1-dev",
+				"checkinstall",
+				"libsasl2-dev",
+				"libldap2-dev"
+			]
+		},
+		"docker_distribution": {
+			"harbor_cfg_file": "config/harbor/harbor.cfg",
+			"harbor_compose_file": "config/harbor/docker-compose.yml",
+			"harbor_folder": "/opt/harbor"
+		},
+		"development_vm": {
+			"requirement_file": "config/development_vm/requirements.txt"
+		},
+		"kong": {
+			"host_mount_path": "/mnt/nfs/data/xpresso_platform/external/kong"
+		}
+	},
+	"controller": {
+		"server_url": "http://172.16.7.2:5050",
+		"client_path": ".xpr/",
+		"soft_expiry": 1800,
+		"hard_expiry": 86400
+	},
+	"mongodb": {
+		"mongo_url": "mongodb://mongoprod2.xpresso.ai:27017/?replicaSet=rs0",
+		"database": "xprdb",
+		"mongo_uid": "xprdb_admin",
+		"mongo_pwd": "xprdb@Abz00ba",
+		"w": 1,
+		"interval_between_retries": 5,
+		"max_retries": 2
+	},
+	"vms": {
+		"username": "root",
+		"password": "abz00ba1nc#123"
+	},
+	"jenkins": {
+		"master_host": "http://172.16.7.2:8080",
+		"username": "xprops",
+		"password": "abz00ba1nc",
+		"template_job": "template-pipeline"
+	},
+	"bitbucket": {
+		"restapi": "https://api.bitbucket.org/2.0/",
+		"teamname": "abzooba-screpo/",
+		"username": "bbdevadm",
+		"password": "#Abzbbdevadm@2019"
+	},
+	"ldap": {
+		"ldap_url": "ldap://172.16.7.2"
+	},
+	"authentication_type": "ldap",
+	"projects": {
+		"deployment_files_folder": "deployment_files",
+                "declarative_pipeline_folder": "/opt/xpresso.ai/deployment_files/declarative_pipeline_files",
+                "kubeflow_template": "xpresso/ai/admin/controller/project_management/kubeflow/declarative_pipeline/kubeflow_template",
+		"valid_environments": ["DEV", "INT", "QA", "UAT", "PROD"]
+	},
+	"email_notification": {
+		"smtphost": "smtp.gmail.com",
+		"smtpport": 587,
+		"sender_mail": "##",
+		"sender_passwd": "##"
+	},
+	"gateway": {
+		"provider": "kong",
+		"admin_url" : "http://172.16.2.5:8001",
+		"proxy_url" : "http://172.16.2.5:8000"
+	},
+	"pachyderm": {
+		"cluster_ip": "172.16.2.8",
+		"port": 30650
+	}
+}
