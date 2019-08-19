@@ -1,17 +1,9 @@
 """ Class design for Dataset"""
 import copy
-import pickle
-from abc import abstractmethod
 import datetime
+from abc import abstractmethod
+
 import pandas as pd
-import os
-
-# from xpresso.ai.admin.controller.client.controller_client import \
-#     ControllerClient
-import xpresso.ai.admin.controller.client.controller_client as controller
-
-from xpresso.ai.admin.controller.exceptions.xpr_exceptions import \
-    SerializationFailedException, DeserializationFailedException
 
 """
 from xpresso.ai.admin.controller.persistence.persistentce_connection import \
@@ -41,7 +33,8 @@ class AbstractDataset(object):
     def __init__(self, dataset_name: str = "default",
                  description: str = "This is a dataset",
                  config_path: str = XprConfigParser.DEFAULT_CONFIG_PATH):
-        self.config = XprConfigParser(config_file_path=config_path)
+        #self.config = XprConfigParser(config_file_path=config_path)
+        self.config = ""
 
         self.data = pd.DataFrame()
         self.name = dataset_name

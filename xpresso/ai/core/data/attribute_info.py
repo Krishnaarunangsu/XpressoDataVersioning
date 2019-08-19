@@ -1,7 +1,7 @@
 __all__ = ["AttributeInfo"]
 __author__ = "Srijan Sharma"
 
-from xpresso.ai.core.logging.xpr_log import XprLogger
+# from xpresso.ai.core.logging.xpr_log import XprLogger
 from xpresso.ai.core.data.dataset_type import DECIMAL_PRECISION
 import pandas as pd
 import numpy as np
@@ -32,7 +32,7 @@ class DataType(Enum):
 class AttributeInfo:
 
     def __init__(self, attribute_name):
-        self.logger = XprLogger()
+        #self.logger = XprLogger()
         self.name = attribute_name
         self.metrics = dict()
 

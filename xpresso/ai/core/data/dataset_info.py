@@ -6,7 +6,7 @@ import pandas as pd
 import scipy.stats as stats
 from dateutil.parser import parse
 
-from xpresso.ai.admin.controller.exceptions.xpr_exceptions import *
+# from xpresso.ai.admin.controller.exceptions.xpr_exceptions import *
 from xpresso.ai.core.data.attribute_info import AttributeInfo, DataType
 from xpresso.ai.core.data.dataset_type import DatasetType, DECIMAL_PRECISION
 #from xpresso.ai.core.logging.xpr_log import XprLogger
@@ -16,9 +16,9 @@ __author__ = 'Srijan Sharma'
 
 # This is indented as logger can not be serialized and can not be part
 # of dataset
-logger = XprLogger()
+#logger = XprLogger()
 
-
+from xpresso.ai.core.data.exception_handling.custom_exception import InvalidDataTypeException
 class DatasetInfo:
     """ DatasetInfo contains the detailed information about the
     dataset. This information contains the attribute list,
@@ -31,9 +31,9 @@ class DatasetInfo:
 
     def understand_attributes(self, data, dataset_type: DatasetType):
         if not isinstance(dataset_type, DatasetType):
-            logger.error("Unacceptable Data type provided. Type {} is "
-                         "not supported".format(dataset_type))
-            raise InvalidDatatypeException("Provided Data Type : {} not "
+            #logger.error("Unacceptable Data type provided. Type {} is "
+                         #"not supported".format(dataset_type))
+            raise InvalidDataTypeException("Provided Data Type : {} not "
                                            "supported".format(dataset_type))
 
         # For structured datatype
@@ -104,9 +104,9 @@ class DatasetInfo:
 
     def populate_attribute(self, data, date_type):
         if not isinstance(date_type, DatasetType):
-            logger.error("Unacceptable Data type provided. Type {} is "
-                         "not supported".format(date_type))
-            raise InvalidDatatypeException("Provided Data Type : {} not "
+            #logger.error("Unacceptable Data type provided. Type {} is "
+                         #"not supported".format(date_type))
+            raise InvalidDataTypeException("Provided Data Type : {} not "
                                            "supported".format(date_type))
 
         # For structured datatype
@@ -125,9 +125,9 @@ class DatasetInfo:
     # populates multi variate metric analysis
     def populate_metric(self, data, data_type):
         if not isinstance(data_type, DatasetType):
-            logger.error("Unacceptable Data type provided. Type {} is "
-                         "not supported".format(data_type))
-            raise InvalidDatatypeException("Provided Data Type : {} not "
+            #logger.error("Unacceptable Data type provided. Type {} is "
+                         #"not supported".format(data_type))
+            raise InvalidDataTypeException("Provided Data Type : {} not "
                                            "supported".format(data_type))
         # For structured datatype
         elif data_type == DatasetType.STRUCTURED:

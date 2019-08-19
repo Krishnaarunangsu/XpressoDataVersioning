@@ -3,8 +3,6 @@
 import pickle
 import pandas as pd
 
-from xpresso.ai.admin.controller.exceptions.xpr_exceptions import \
-    SerializationFailedException, DeserializationFailedException
 from xpresso.ai.core.data.dataset import AbstractDataset
 from xpresso.ai.core.data.dataset_explorer import Explorer
 from xpresso.ai.core.data.dataset_type import DatasetType
@@ -37,6 +35,7 @@ class StructuredDataset(AbstractDataset):
         """ Fetches dataset from multiple data sources and loads them
         into a dataset"""
         self.data = pd.read_csv(data_source)
+        print(self.data)
         self.local_storage_required = local_storage_required
         print(self.local_storage_required)
         self.sample_percentage = sample_percentage

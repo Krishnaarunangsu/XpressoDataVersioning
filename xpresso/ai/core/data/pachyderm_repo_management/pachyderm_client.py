@@ -3,8 +3,7 @@ import os
 import pickle
 
 from grpc._channel import _Rendezvous as PachClientException
-from xpresso.ai.admin.controller.exceptions.xpr_exceptions \
-    import PachydermOperationException
+from xpresso.ai.core.data.exception_handling.custom_exception import PachydermOperationException
 
 # TODO: Make sure to add exceptions for all the client methods
 

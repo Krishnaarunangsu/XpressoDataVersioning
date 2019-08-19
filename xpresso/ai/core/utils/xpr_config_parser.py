@@ -6,8 +6,7 @@ __author__ = 'Naveen Sinha'
 import json
 from json import JSONDecodeError
 
-from xpresso.ai.admin.controller.exceptions.xpr_exceptions import \
-    InvalidConfigException
+from xpresso.ai.core.data.exception_handling.custom_exception import InvalidConfigException
 
 
 class XprConfigParser:
@@ -46,4 +45,4 @@ class XprConfigParser:
 
 
 if __name__ == "__main__":
-    p =XprConfigParser()
+    p = XprConfigParser()

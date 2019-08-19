@@ -3,10 +3,8 @@ import datetime
 import re
 import pickle
 
-from xpresso.ai.core.logging.xpr_log import XprLogger
-from xpresso.ai.admin.controller.exceptions.xpr_exceptions import *
-from xpresso.ai.admin.controller.pachyderm_repo_management.pachyderm_client \
-    import PachydermClient
+from xpresso.ai.core.data.exception_handling.custom_exception import *
+from xpresso.ai.core.data.pachyderm_repo_management.pachyderm_client import PachydermClient
 from xpresso.ai.core.utils.xpr_config_parser import XprConfigParser
 import xpresso.ai.core.data.dataset
 
