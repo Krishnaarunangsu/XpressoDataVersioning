@@ -44,9 +44,10 @@ class SerializationDeserializationUtil:
 
 
         with open("dataset_new", 'ab') as db_file:
-            pickle.dump(db, db_file)
+            pickle.dump(db, db_file, protocol=pickle.HIGHEST_PROTOCOL)
+
         
-    def load_data(self):
+    def load_data(self) -> object:
         """
         for reading also binary mode is important
         :return:
@@ -54,6 +55,7 @@ class SerializationDeserializationUtil:
         db = ""
         with open('dataset_new', 'rb') as db_file:
             db = pickle.load(db_file)
+            print(db)
 
         for keys in db:
             print(keys,'->',db[keys])
