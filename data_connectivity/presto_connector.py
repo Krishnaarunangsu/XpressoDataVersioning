@@ -33,6 +33,6 @@ class PrestoConnector:
 
 
 if __name__ == "__main__":
-    pc = PrestoConnector("10.0.23.26",8080,'catalog','schema')
-    print(pc)
+    pc = PrestoConnector("10.0.23.26", 8080, 'catalog', 'schema')
+    print(pc.get_connector())
 
