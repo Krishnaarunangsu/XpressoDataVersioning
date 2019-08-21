@@ -32,5 +32,5 @@ class AlluxioConnector:
 
 
 if __name__ == "__main__":
-    alx = AlluxioConnector("10.0.23.26", 8080)
+    alx = AlluxioConnector("10.0.23.22", 8080)
     print(alx.connect())
