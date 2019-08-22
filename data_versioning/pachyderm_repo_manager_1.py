@@ -2,13 +2,13 @@ import os
 import datetime
 import re
 import pickle
+import json
 
-from xpresso.ai.core.logging.xpr_log import XprLogger
-from xpresso.ai.admin.controller.exceptions.xpr_exceptions import *
-from xpresso.ai.admin.controller.pachyderm_repo_management.pachyderm_client \
-    import PachydermClient
+# from xpresso.ai.core.logging.xpr_log import XprLogger
+from exception_handling.custom_exception import *
+from data_versioning.pachyderm_client import PachydermClient
 from xpresso.ai.core.utils.xpr_config_parser import XprConfigParser
-import xpresso.ai.core.data.dataset as datasetmodule
+# import xpresso.ai.core.data.dataset as datasetmodule
 
 
 class PachydermRepoManager:
@@ -16,7 +16,7 @@ class PachydermRepoManager:
     Manages repos on pachyderm cluster
     """
     def __init__(self, config_path=XprConfigParser.DEFAULT_CONFIG_PATH):
-        self.logger = XprLogger()
+        #self.logger = XprLogger()
         self.config = XprConfigParser(config_path)["pachyderm"]
         self.pachyderm_client = self.connect_to_pachyderm()
 
