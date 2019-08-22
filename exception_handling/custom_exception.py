@@ -48,3 +48,11 @@ class PrestoConnectionException(Exception):
 
     def __str__(self):
         return repr(self.value)
+
+
+RepoNotProvidedException
+PachydermFieldsNameException
+BranchInfoException
+PachydermFieldsNameException
+DatasetInfoException
+
