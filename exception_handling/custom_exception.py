@@ -50,6 +50,7 @@ class PrestoConnectionException(Exception):
         return repr(self.value)
 
 
+<<<<<<< HEAD
 class PachydermOperationException(Exception):
     # Constructor or Initializer
     def __init__(self, value):
@@ -125,4 +126,11 @@ class LocalFilePathException(Exception):
 
     def __str__(self):
         return repr(self.value)
+=======
+RepoNotProvidedException
+PachydermFieldsNameException
+BranchInfoException
+PachydermFieldsNameException
+DatasetInfoException
+>>>>>>> aec70b7b205b194f559c4b137b044229dd9f83ee
 
