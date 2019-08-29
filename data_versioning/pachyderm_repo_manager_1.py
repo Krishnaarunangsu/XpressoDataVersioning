@@ -77,7 +77,7 @@ class PachydermRepoManager:
            # self.config[self.HOST_ADDRESS],
            # self.config[self.PORT]
         )
-        print('Jagannath')
+        #print('Jagannath')
         return client
 
     def create_repo(self, repo_json):
@@ -625,9 +625,16 @@ class PachydermRepoManager:
 
 if __name__ == '__main__':
     pc =PachydermRepoManager()
-    print(pc)
+    #print(pc)
     with open('../resources/create_repo.json', 'rb') as f:
         data = json.load(f)
-        print(data)
+        #print(data)
         pc.create_repo(data)
+    #print(f'Repos:{pc.get_repos()}')
         #process_json(data)
+        #repo_existence = pc.check_repo_existence('abzooba_repo_qa_1')
+        #print(repo_existence)
+        #pc.create_branch(data)
+
+    for repo in pc.get_repos():
+        print(repo)
